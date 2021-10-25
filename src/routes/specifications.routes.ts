@@ -6,11 +6,11 @@ import { listSpecificationsController } from "../modules/cars/UseCases/ListSpeci
 const specificationsRoutes = Router();
 
 specificationsRoutes.post("/", (req, res) => {
-    return createSpecificationController.handle(req, res);
+  return createSpecificationController.handle(req, res);
 });
 
 specificationsRoutes.get("/", (req, res) => {
-    return listSpecificationsController.handle(req, res);
+  return listSpecificationsController.handle(req, res);
 });
 
 export { specificationsRoutes };

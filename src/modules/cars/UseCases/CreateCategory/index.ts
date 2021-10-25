@@ -5,7 +5,7 @@ import { CreateCategoryUseCase } from "./CreateCategoryUseCase";
 const categoriesRepository = CategoriesRepository.getInstance();
 const createCategoriesUseCase = new CreateCategoryUseCase(categoriesRepository);
 const createCategoryController = new CreateCategoryController(
-    createCategoriesUseCase
+  createCategoriesUseCase
 );
 
 export { createCategoryController };

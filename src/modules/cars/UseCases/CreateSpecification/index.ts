@@ -4,10 +4,10 @@ import { CreateSpecificationUseCase } from "./CreateSpecificationUseCase";
 
 const specificationsRepository = SpecificationsRepository.getInstance();
 const createSpecificationUseCase = new CreateSpecificationUseCase(
-    specificationsRepository
+  specificationsRepository
 );
 const createSpecificationController = new CreateSpecificationController(
-    createSpecificationUseCase
+  createSpecificationUseCase
 );
 
 export { createSpecificationController };
