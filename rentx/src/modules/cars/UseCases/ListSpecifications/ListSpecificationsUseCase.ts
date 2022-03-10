@@ -4,13 +4,14 @@ import { ISpecificationsRepository } from "../../repositories/ISpecificationsRep
 
 @injectable()
 class ListSpecificationsUseCase {
+
   constructor(
     @inject("SpecificationsRepository")
-    private SpecificationsRepository: ISpecificationsRepository
+    private specificationsRepository: ISpecificationsRepository
   ) { }
 
   async execute(): Promise<Specification[]> {
-    const specifications = await this.SpecificationsRepository.list();
+    const specifications = await this.specificationsRepository.list();
     return specifications;
   }
 }
