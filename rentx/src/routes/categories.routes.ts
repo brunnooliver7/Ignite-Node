@@ -4,7 +4,6 @@ import { CreateCategoryController } from "../modules/cars/useCases/CreateCategor
 import { ImportCategoryController } from "../modules/cars/useCases/ImportCategory/ImportCategoryController";
 import { ListCategoriesController } from "../modules/cars/useCases/ListCategories/ListCategoriesController";
 
-
 const categoriesRoutes = Router();
 
 const updload = multer({
@@ -22,4 +21,3 @@ categoriesRoutes.get("/", listCategoriesController.handle);
 categoriesRoutes.post("/import", updload.single("file"), importCategoryController.handle);
 
 export { categoriesRoutes };
-
