@@ -11,12 +11,20 @@ interface IRequest {
 
 @injectable()
 class CreateUserUseCase {
+
   constructor(
     @inject("UsersRepository")
     private usersRepository: IUsersRepository
   ) { };
 
   async execute({ name, email, password, driver_license }: IRequest): Promise<void> {
+
+    const user = await this.usersRepository.findByEmail(email);
+
+    if (user) {
+      throw new Error("User already exists");
+    }
+
     const passwordHash = await hash(password, 8);
 
     await this.usersRepository.create({
