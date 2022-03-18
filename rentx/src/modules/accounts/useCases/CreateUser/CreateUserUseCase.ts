@@ -1,14 +1,7 @@
+import { AppError } from "@errors/AppError";
+import { ICreateUserDTO, IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
 import { hash } from "bcryptjs";
 import { inject, injectable } from "tsyringe";
-import { AppError } from "../../../../errors/AppError";
-import { IUsersRepository } from "../../repositories/IUsersRepository";
-
-interface IRequest {
-  name: string;
-  email: string;
-  password: string;
-  driver_license: string;
-}
 
 @injectable()
 class CreateUserUseCase {
@@ -18,7 +11,7 @@ class CreateUserUseCase {
     private usersRepository: IUsersRepository
   ) { };
 
-  async execute({ name, email, password, driver_license }: IRequest): Promise<void> {
+  async execute({ name, email, password, driver_license }: ICreateUserDTO): Promise<void> {
 
     const user = await this.usersRepository.findByEmail(email);
 

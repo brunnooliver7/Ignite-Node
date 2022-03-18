@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\bruno\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @types/jest @types/ts-jest
+  C:\Program Files\nodejs\node.exe C:\Users\bruno\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add tsconfig-paths -D
 
 PATH: 
-  C:\Program Files\Eclipse Foundation\jdk-11.0.12.7-hotspot\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Python39\Scripts\;C:\Python39\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;C:\WINDOWS\system32\wbem;C:\Program Files (x86)\IVT Corporation\BlueSoleil\Mobile;C:\Program Files\Java\jdk-12.0.2\bin;C:\Program Files\Maven\apache-maven-3.6.3\bin;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\nodejs\;C:\Users\bruno\AppData\Local\Microsoft\WindowsApps;C:\Users\bruno\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\bin;C:\Users\bruno\AppData\Local\Programs\mongosh\;C:\Users\bruno\AppData\Roaming\npm
+  C:\Program Files\Eclipse Foundation\jdk-11.0.12.7-hotspot\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Python39\Scripts\;C:\Python39\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;C:\WINDOWS\system32\wbem;C:\Program Files (x86)\IVT Corporation\BlueSoleil\Mobile;C:\Program Files\Java\jdk-12.0.2\bin;C:\Program Files\Maven\apache-maven-3.6.3\bin;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\nodejs\;C:\Users\bruno\AppData\Local\Microsoft\WindowsApps;;C:\Users\bruno\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\bin;;C:\Users\bruno\AppData\Local\Programs\mongosh\;C:\Users\bruno\AppData\Roaming\npm
 
 Yarn version: 
   1.22.15
@@ -14,17 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fts-jest: Not found
-      at Request.params.callback [as _callback] (C:\Users\bruno\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66140:18)
-      at Request.self.callback (C:\Users\bruno\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140885:22)
-      at Request.emit (node:events:390:28)
-      at Request.<anonymous> (C:\Users\bruno\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141857:10)
-      at Request.emit (node:events:390:28)
-      at IncomingMessage.<anonymous> (C:\Users\bruno\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141779:12)
-      at Object.onceWrapper (node:events:509:28)
-      at IncomingMessage.emit (node:events:402:35)
-      at endReadableNT (node:internal/streams/readable:1343:12)
-      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+  Error: EPERM: operation not permitted, unlink 'E:\OneDrive\Code\Ignite_Node\rentx\node_modules\.bin\ts-node-dev'
 
 npm manifest: 
   {
@@ -41,6 +31,7 @@ npm manifest:
       "test": "jest"
     },
     "dependencies": {
+      "@types/jest": "^27.4.1",
       "bcryptjs": "^2.4.3",
       "csv-parse": "^4.16.3",
       "express": "^4.17.1",
@@ -785,6 +776,14 @@ Lockfile:
     integrity sha512-c3mAZEuK0lvBp8tmuL74XRKn1+y2dcwOUpH7x4WrF6gk1GIgiluDRgMYQtw2OFcBvAJWlt6ASU3tSqxp0Uu0Aw==
     dependencies:
       "@types/istanbul-lib-report" "*"
+  
+  "@types/jest@^27.4.1":
+    version "27.4.1"
+    resolved "https://registry.yarnpkg.com/@types/jest/-/jest-27.4.1.tgz#185cbe2926eaaf9662d340cc02e548ce9e11ab6d"
+    integrity sha512-23iPJADSmicDVrWk+HT58LMJtzLAnB2AgIzplQuq/bSrGaxCrlvRFjGbXmamnnk/mAmCdLStiGqggu28ocUyiw==
+    dependencies:
+      jest-matcher-utils "^27.0.0"
+      pretty-format "^27.0.0"
   
   "@types/json-schema@^7.0.7":
     version "7.0.9"
@@ -3094,7 +3093,7 @@ Lockfile:
       jest-get-type "^27.5.1"
       pretty-format "^27.5.1"
   
-  jest-matcher-utils@^27.5.1:
+  jest-matcher-utils@^27.0.0, jest-matcher-utils@^27.5.1:
     version "27.5.1"
     resolved "https://registry.yarnpkg.com/jest-matcher-utils/-/jest-matcher-utils-27.5.1.tgz#9c0cdbda8245bc22d2331729d1091308b40cf8ab"
     integrity sha512-z2uTx/T6LBaCoNWNFWwChLBKYxTMcGBRjAt+2SbP929/Fflb9aa5LGma654Rz8z9HLxsrUaYzxE9T/EFIL/PAw==
@@ -4199,7 +4198,7 @@ Lockfile:
     resolved "https://registry.npmjs.org/prettier/-/prettier-2.3.2.tgz"
     integrity sha512-lnJzDfJ66zkMy58OL5/NY5zp70S7Nz6KqcKkXYzn2tMVrNxvbqaBpg7H3qHaLxCJ5lNMsGuM8+ohS7cZrthdLQ==
   
-  pretty-format@^27.5.1:
+  pretty-format@^27.0.0, pretty-format@^27.5.1:
     version "27.5.1"
     resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-27.5.1.tgz#2181879fdea51a7a5851fb39d920faa63f01d88e"
     integrity sha512-Qb1gy5OrP5+zDf2Bvnzdl3jsTf1qXVMazbvCoKhtKqVs4/YK4ozX4gKQJJVyNe+cajNPn0KoC0MC3FUmaHWEmQ==
