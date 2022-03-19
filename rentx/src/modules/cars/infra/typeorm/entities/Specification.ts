@@ -24,3 +24,4 @@ class Specification {
 }
 
 export { Specification };
+
