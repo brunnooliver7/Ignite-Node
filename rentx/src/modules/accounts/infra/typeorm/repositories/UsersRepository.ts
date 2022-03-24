@@ -2,7 +2,7 @@ import { ICreateUserDTO, IUsersRepository } from "@modules/accounts/repositories
 import { getRepository, Repository } from "typeorm";
 import { User } from "../entities/User";
 
-class UserRepository implements IUsersRepository {
+class UsersRepository implements IUsersRepository {
   private repository: Repository<User>;
 
   constructor() {
@@ -41,5 +41,4 @@ class UserRepository implements IUsersRepository {
 
 }
 
-export { UserRepository };
-
+export { UsersRepository };
