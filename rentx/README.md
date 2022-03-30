@@ -33,7 +33,6 @@ Não deve ser possível cadastrar uma especificação já existente para o mesmo
 
 **RF** => Requisitos funcionais
 Deve ser possível cadstrar a imagem do carro
-Deve ser possível listar todos os carros
 
 **RNF** => Requisitos não funcionais
 Utilizar o multer para upload dos arquivos
