@@ -34,4 +34,3 @@ categoriesRoutes.post(
 );
 
 export { categoriesRoutes };
-
