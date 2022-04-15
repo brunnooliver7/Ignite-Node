@@ -1,3 +1,4 @@
+import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
 import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
 import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
 import { IRentalsRepository } from "@modules/rentals/repositories/IRentalsRepository";
@@ -22,7 +23,10 @@ class CreateRentalUseCase {
     private dateProvider: IDateProvider,
 
     @inject("CarsRepository")
-    private carsRepository: ICarsRepository
+    private carsRepository: ICarsRepository,
+
+    @inject("UsersRepository")
+    private userRepository: IUsersRepository
   ) { }
 
   async execute({
@@ -31,25 +35,31 @@ class CreateRentalUseCase {
     expected_return_date
   }: IRequest): Promise<Rental> {
     const minHourDiff = 24;
-    const carUnvailable = await this.rentalsRepository.findOpenRentalByCar(car_id);
 
+    const car = await this.carsRepository.findById(car_id);
+    if (!car) {
+      throw new AppError("Car not found");
+    }
+
+    const user = await this.userRepository.findById(user_id);
+    if (!user) {
+      throw new AppError("User not found");
+    }
+
+    const carUnvailable = await this.rentalsRepository.findOpenRentalByCar(car_id);
     if (carUnvailable) {
       throw new AppError("Car is unavailable");
     }
 
     const rentalOpenToUser = await this.rentalsRepository.findOpenRentalByUser(user_id);
-
     if (rentalOpenToUser) {
       throw new AppError("There's a rental in progress for user");
     }
 
-    const dateNow = this.dateProvider.dateNow();
-
     const compare = this.dateProvider.compareInHours(
-      dateNow,
+      this.dateProvider.dateNow(),
       expected_return_date
     );
-
     if (compare < minHourDiff) {
       throw new AppError("Invalid return time");
     }

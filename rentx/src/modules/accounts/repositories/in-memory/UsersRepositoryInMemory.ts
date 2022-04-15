@@ -4,10 +4,11 @@ import { ICreateUserDTO, IUsersRepository } from "../IUsersRepository";
 class UsersRepositoryInMemory implements IUsersRepository {
   users: User[] = [];
 
-  async create({ name, email, password, driver_license }: ICreateUserDTO): Promise<void> {
+  async create({ name, email, password, driver_license }: ICreateUserDTO): Promise<User> {
     const user = new User();
     Object.assign(user, {name, email, password, driver_license})
     this.users.push(user);
+    return user;
   }
 
   async findByEmail(email: string): Promise<User> {
