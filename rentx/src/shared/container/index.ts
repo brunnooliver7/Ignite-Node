@@ -14,6 +14,8 @@ import { RentalsRepository } from '@modules/rentals/infra/typeorm/repositories/R
 import { IRentalsRepository } from '@modules/rentals/repositories/IRentalsRepository';
 import "@shared/container/providers";
 import { container } from 'tsyringe';
+import { S3StorageProvider } from './providers/StorageProvider/Implementations/S3StorageProvider';
+import { IStorageProvider } from './providers/StorageProvider/IStorageProvider';
 
 container.registerSingleton<ICategoriesRepository>(
   "CategoriesRepository",
@@ -48,4 +50,9 @@ container.registerSingleton<IRentalsRepository>(
 container.registerSingleton<IUsersTokensRepository>(
   "UsersTokensRepository",
   UsersTokensRepository
+);
+
+container.registerSingleton<IStorageProvider>(
+  "StorageProvider",
+  S3StorageProvider
 );
